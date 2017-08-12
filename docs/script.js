@@ -100,7 +100,7 @@ $('#json_pc_data').click( function (){
 
 
 	//たつんとふ召喚設定
-	var ttntf_url = '//shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+	var ttntf_url = '//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
 
 
  	//--------------------------------------------------------
@@ -389,7 +389,7 @@ $('#json_pc_data').click( function (){
 //GASでコマ画像を読み込む
 //強烈なほどに遅い。
 
-		var ttntf_img = "//shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+		var ttntf_img = "//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
 
 			$.ajax({
 				 url : "//script.googleusercontent.com/macros/echo?user_content_key=7zVpgRmGL9MTW5UbGt8YYCIjKx7wEYDdUZJiraz3M-hQoAKHAb7QSlsP5AWgns2iHUBoaBmVEwHnN3pdJM4Oqv5mhB-Tgz4tm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnG_F_MG9At8nBxYd-bu-zvUYyCgVlwk86LkCwr0bgGMoTP-zvsuNMi_QOc-Mq-5N6uIqWsDnSrEd&lib=M3hoO30ypGuhWoUcK2dBqpDn3jzVRp_Ce",
