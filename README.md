@@ -1,7 +1,10 @@
 
 # お茶会の魔法瓶  
 
-## Magic*Bottle in The Teaparty
+
+ https://273c.github.io/teaparty/
+
+### Magic*Bottle in The Teaparty
 事務所のお茶会卓PLたち専用の門の創造。  
 リストが反映されないPLはたつはらくんまで。
 
