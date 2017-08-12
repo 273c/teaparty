@@ -154,23 +154,29 @@ function getDiceall() {
 //1d100を振る。セレクトボックスのidと照らし合わせて、判定。
 //ダイスログにはセレクトボックスのvalが入る。
 
+//skill_valは読み込めた。あとは表示
 
-$('#getDice_skill').click(function(){
+function getDice_skill(){
   var mt = new MersenneTwister();
+
+  var skill_val =   $('#dice_skill_select option:selected').text();
+  console.log(skill_val);
 
   //1d100を振る
   var dice10_1 = mt.nextInt(0, 10);
   var dice10_2 = mt.nextInt(0, 10);
 
-//condiceフィールドに表示する
+
+  //セレクトボックス式ダイスの表示を消す
+  document.getElementById('condiceall').innerHTML = ("");
+
+  //condiceフィールドに表示する
   document.getElementById('condice1').innerHTML = (dice10_1) * 10 + (dice10_2);
   if ((dice10_1) * 10 + (dice10_2) == 0) {
     document.getElementById('condice1').innerHTML = 100
   }
   var Result = parseInt(document.getElementById("condice1").innerHTML) + 0;
 
-  //セレクトボックス式ダイスの表示を消す
-  document.getElementById('condiceall').innerHTML = ("");
 
   //result表示
   target = document.getElementById("result");
@@ -186,9 +192,7 @@ $('#getDice_skill').click(function(){
   }
 
   //技能判定result
-  var skill_val =   document.getElementById('dice_skill_select').val();
-  console.log(skill_val);
-    document.getElementById('condiceall').innerHTML = (skill_val);
+    $('#condiceall').innerHTML = (skill_val);
 
 
   count--;
@@ -204,11 +208,13 @@ $('#getDice_skill').click(function(){
     var m = gettime.getMonth() + 1;
     var d = gettime.getDate();
     if (deme == 0) {
-      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【100】</span>(技能判定)");
+      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【100】</span>(" +skill_val+ ")");
       document.getElementById("dicelog_box").insertBefore(dicelog, dicelog_box.firstChild);
     } else {
-      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【" + deme + "】</span>(技能判定)");
+      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【" + deme + "】</span>(" +skill_val+ ")");
       document.getElementById("dicelog_box").insertBefore(dicelog, dicelog_box.firstChild);
     }
+
   }
+
 }
