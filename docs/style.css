@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+body {
+  padding-top: 20px;
+}
+.container{
+	max-width:920px;
+	padding:0;
+}
+.well{
+	margin-top:5px;
+	background: transparent;
+	border:0px;
+	box-shadow: none;
+	padding:5px;
+}
+.row{
+	margin:5px;
+	padding:5px;
+}

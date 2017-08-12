@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>お茶会の召喚陣</title>
+
+    <!-- Bootstrap Core CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link href="style.css" rel="stylesheet">
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+<div class="container">
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="page-header">
+				  <h2>お茶会の魔法瓶</h2>
+				</div>
+
+								<form >
+  								<fieldset>
+  									<div class="form-group col-sm-4">
+  										<!-- PL名選択　-->
+  										<select id="PL_name_select" class="form-control">
+  											<option selected>プレイヤー名選択</option>
+  										</select>
+  									</div>
+  									<div class="form-group col-sm-8">
+  										<!-- PC名選択　-->
+  										<select id="PC_name_select" class="form-control">
+  											<option selected>キャラ名選択</option>
+  										</select>
+  									</div>
+  									<div class="form-group col-xs-12">
+                  <input id="json_pc_data" type="button" class="btn btn-primary btn-block" value="取得" />
+  								</div>
+  								</fieldset>
+  							</form>
+			</div>
+		</div>
+
+		<div class="row" id="states_panell" style="display: none;">
+			<div class="col-xs-12 col-md-4 text-center center-block hidden-xs" id="image_div">
+				<img src="" class="media-object img-responsive img-rounded center-block"   data-src="holder.js/200x200/text:no-image" style="width: 200px; height: 200px;" id="img_URL">
+        <BR />
+
+							<form class="form-horizontal">
+							  <div class="form-group">
+
+								<!-- 技能選択　-->
+								<select class="form-control" id="room_list">
+								<option selected >ルーム選択</option>
+								</select>
+
+								</div>
+
+						 <div class="form-group">
+							  <button type="submit" class="btn btn-info btn-block" id="ttntf_go">コマ作成</button>
+						</div>
+					</form>
+
+			</div>
+			<div class="col-xs-12 col-md-8">
+				  <!-- Nav tabs -->
+					<ul class="nav nav-tabs" role="tablist" id="myTabs">
+						<li role="presentation" class="active"><a href="#states" aria-controls="home" role="tab" data-toggle="tab">Stetas</a></li>
+						<li role="presentation"><a href="#dice" aria-controls="messages" role="tab" data-toggle="tab">Dice</a></li>
+						<li role="presentation" class="hidden-xs"><a href="#palette" aria-controls="messages" role="tab" data-toggle="tab">Palette</a></li>
+					</ul>
+
+					<!-- Tab panes -->
+					<div class="tab-content">
+						<div role="tabpanel" class="tab-pane active fade in" id="states">
+              <BR />
+							<img src="" class="media-object img-responsive img-rounded center-block visible-xs"  data-src="holder.js/200x200/text:no-image" style="width: 200px; height: 200px;" id="img_URL_smh">
+
+  							<span id="pc_name_id"></span>
+
+						<ul class="list-inline" id="SAN_HP_MP"></ul>
+
+						<div class="table-responsive">
+							 <table class="table table-bordered table-condensed">
+								 <thead>
+									<tr>
+										<th>STR/*5</th>
+										<th>CON/*5</th>
+										<th>POW/*5</th>
+										<th>DEX/*5</th>
+										<th>APP/*5</th>
+										<th>SIZ/*5</th>
+										<th>INT/*5</th>
+										<th>EDU/*5</th>
+									</tr>
+								 </thead>
+								 <tbody>
+									<tr id="STR_CON_DEX"></tr>
+								 </tbody>
+							 </table>
+							 </div>
+
+				<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+					 <div class="panel panel-default">
+						 <div class="panel-heading" role="tab" id="heading_first">
+							 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          基本ステ技能
+        </a></div>
+					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_first">
+						<table class="table table-responsive panel-body table-condensed" >
+							<tr>
+								<th>アイデア</th>
+								<td id="idea"></td>
+							</tr>
+							<tr>
+								<th>幸運</th>
+								<td id="lucky"></td>
+							</tr>
+							<tr>
+								<th>知識</th>
+								<td id="knowledge"></td>
+							</tr>
+							<tr>
+								<th>DB</th>
+								<td id="db"></td>
+							</tr>
+						</table>
+					</div></div>
+					<div class="panel panel-default">
+					<div class="panel-heading" role="tab" id="heading2">
+						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+          戦闘技能
+        </a></div>
+  					  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+							<table class="table table-responsive panel-body table-condensed">
+              <tbody id="TBAP" >
+
+              </tbody>
+											</table>
+										</div></div>
+										 <div class="panel panel-default">
+											 <div class="panel-heading" role="tab" id="heading3">
+												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="false" aria-controls="collapse3">
+          探索技能
+        </a></div>
+  					  <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+											<table class="table table-responsive panel-body table-condensed">
+                      <tbody id="TFAP">
+
+                      </tbody>
+											</table>
+										</div></div>
+
+										 <div class="panel panel-default">
+											 <div class="panel-heading" role="tab" id="heading4">
+												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="false" aria-controls="collapse4">
+          行動技能
+        </a></div>
+  					  <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+											<table class="table table-responsive panel-body table-condensed">
+                      <tbody id="TAAP">
+
+                      </tbody>
+											</table>
+										</div></div>
+
+										 <div class="panel panel-default">
+											 <div class="panel-heading" role="tab" id="heading5">
+												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="false" aria-controls="collapse5">
+          交渉技能
+        </a></div>
+  					  <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+											<table class="table table-responsive panel-body table-condensed">
+                        <tbody id="TCAP">
+
+                        </tbody>
+
+											</table>
+										</div></div>
+
+										 <div class="panel panel-default">
+											 <div class="panel-heading" role="tab" id="heading6">
+												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="false" aria-controls="collapseTwo">
+          知識技能
+        </a></div>
+  					  <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+											<table class="table table-responsive panel-body table-condensed">
+                        <tbody id="TKAP">
+
+                        </tbody>
+
+											</table>
+										</div></div>
+
+
+								</div>
+						</div>
+
+
+
+						<div role="tabpanel" class="tab-pane fade in" id="dice">
+							<div class="row">
+								<div class="col-sm-6 center-block text-center">
+									<h1><span id="condice1" class="condice"></span></h1>
+									<div id="condiceall" class="condice"></div>
+									<p class="lead text-primary" id="result"></p>
+									<h4 class="text-warning">
+										<!-- CCB<=50<BR /><small>【芸術（技能）】</small> -->
+									</h4>
+								</div>
+								<div class="col-sm-6">
+
+										<form class="form-inline">
+				          	  <input type="button" class="btn btn-info btn-lg btn-block" value="1D100" onclick="getDice1();">
+											<input type="button" class="btn btn-default btn-block hidden-xs" value="1D10" onclick="getDice10();">
+											<input type="button" class="btn btn-default btn-block hidden-xs" value="1D6" onclick="getDice6();">
+											<BR /><select id="roll" name="roll" class="diceall input-lg">
+			          		      <option value="1">1</option>
+			          	      <option value="2">2</option>
+			          	      <option value="3">3</option>
+			          	      <option value="4">4</option>
+			          	      <option value="5">5</option>
+			          	      <option value="6">6</option>
+												<option value="7">7</option>
+			            	    <option value="8">8</option>
+			            	    <option value="8">9</option>
+			            	    <option value="10">10</option>
+			          	      <option value="12">12</option>
+			            	    <option value="15">15</option>
+			            	    <option value="18">18</option>
+			            	    <option value="20">20</option>
+			          	      <option value="24">24</option>
+			          		  </select>
+			          		 <span class="diceall_d">D</span>
+			          			 <select id="men" name="men" class="diceall diceall_right input-lg">
+			              	  <option value="2">2</option>
+			            	    <option value="3">3</option>
+			            	    <option value="4">4</option>
+			            	    <option value="5">5</option>
+			            	    <option value="6">6</option>
+			            	    <option value="7">7</option>
+			            	    <option value="8">8</option>
+			            	    <option value="9">9</option>
+			            	    <option value="10">10</option>
+			              	  <option value="12">12</option>
+			            	    <option value="15">15</option>
+			            	    <option value="18">18</option>
+			              	  <option value="20">20</option>
+			              	  <option value="100">100</option>
+			          	  </select>
+										<input type="button" class="btn btn-default btn-block" value="ROLL!" onclick="getDiceall();">
+				            </form>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12">
+									<form>
+										<fieldset>
+											<div class="form-group">
+												<!-- 技能選択　-->
+												<select class="form-control" id="dice_skill_select">
+													<option selected >判定技能選択</option>
+													<!-- ここに技能値が入る　-->
+												</select>
+											</div>
+										<button type="submit" class="btn  btn-danger btn-lg btn-block">
+											<span class="glyphicon glyphicon-play" aria-hidden="true">技能判定</span>
+										</button>
+										</fieldset>
+									</form>
+								</div>
+							</div>
+
+
+						<div id="dicelog" class="col-sm-12">
+        	    <h4><i class="icon-time"></i> ダイスログ</h4>
+      	      <section id="dicelog_box"></section>
+      		  </div>
+
+						</div>
+						<div role="tabpanel" class="tab-pane fade in well " id="palette">
+							<button  type="button" id="copy_btn" class="btn btn-default  btn-info" data-clipboard-target="#copy_filed">クリップボードにコピー</button>
+							<div class="well well-lg" id="copy_filed"></div>
+
+						</div>
+					</div>
+			</div>
+		</div>
+	</div>
+
+
+
+	  </div>
+  </div><!-- /.container -->
+
+
+</body>
+
+<!-- jQuery -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.9.4/holder.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js"></script>
+<script src="function.js"></script>
+<script src="dicelog.js" type="text/javascript" ></script>
+<script src="mt.js" type="text/javascript" ></script>
+<script src="script.js"></script>
+
+
+</html>
