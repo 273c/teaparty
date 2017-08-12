@@ -155,7 +155,7 @@ function getDiceall() {
 //ダイスログにはセレクトボックスのvalが入る。
 
 
-function getDice_skill() {
+$('#getDice_skill').click(function(){
   var mt = new MersenneTwister();
 
   //1d100を振る
