@@ -162,13 +162,17 @@ function getDice_skill() {
   var dice10_1 = mt.nextInt(0, 10);
   var dice10_2 = mt.nextInt(0, 10);
 
+//condiceフィールドに表示する
   document.getElementById('condice1').innerHTML = (dice10_1) * 10 + (dice10_2);
   if ((dice10_1) * 10 + (dice10_2) == 0) {
     document.getElementById('condice1').innerHTML = 100
   }
   var Result = parseInt(document.getElementById("condice1").innerHTML) + 0;
 
+  //セレクトボックス式ダイスの表示を消す
   document.getElementById('condiceall').innerHTML = ("");
+
+  //result表示
   target = document.getElementById("result");
 
   if (Result >= 96) {
@@ -180,6 +184,12 @@ function getDice_skill() {
   } else {
     document.getElementById('result').innerHTML = ("");
   }
+
+  //技能判定result
+  var skill_val =   document.getElementById('dice_skill_select').val();
+  console.log(skill_val);
+    document.getElementById('condiceall').innerHTML = (skill_val);
+
 
   count--;
   if (count >= 1) {
