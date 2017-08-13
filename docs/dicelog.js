@@ -209,6 +209,7 @@ function getDice_skill(){
   }
 
 
+
   count--;
   if (count >= 1) {
     tim = setTimeout("getDice_skill()", mSec);
