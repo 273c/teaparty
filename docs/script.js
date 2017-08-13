@@ -100,7 +100,7 @@ $('#json_pc_data').click( function (){
 
 
 	//たつんとふ召喚設定
-	var ttntf_url = '//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+	var ttntf_url = 'https://secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
 
 
  	//--------------------------------------------------------
@@ -134,8 +134,8 @@ $('#json_pc_data').click( function (){
 
 
     var PC_ID_select = $("#PC_name_select").val();
- 		var PC_URL = 'charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
-		var PC_URL_nojs = 'charasheet.vampire-blood.net/' + PC_ID_select;
+ 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
+		var PC_URL_nojs = '//charasheet.vampire-blood.net/' + PC_ID_select;
 
 
 		//Jquery getjsonで読み込み、データ出力
@@ -389,7 +389,7 @@ $('#json_pc_data').click( function (){
 //GASでコマ画像を読み込む
 //強烈なほどに遅い。
 
-		var ttntf_img = "//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+		var ttntf_img = "https://secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
 
 			$.ajax({
 				 url : "https://script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec",
