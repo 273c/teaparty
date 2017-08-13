@@ -1,13 +1,16 @@
 // JavaScript Document
 
-
 count = 20; //　点滅させる回数
 mSec = 50; //　点滅速度（1秒＝1000）
 
 function getDice1() {
+
+  $('#condice1').removeClass('text-primary').removeClass('text-danger');
+
   var mt = new MersenneTwister();
   var dice1 = mt.nextInt(0, 10);
   var dice2 = mt.nextInt(0, 10);
+
   document.getElementById('condice1').innerHTML = (dice1) * 10 + (dice2);
   if ((dice1) * 10 + (dice2) == 0) {
     document.getElementById('condice1').innerHTML = 100
@@ -50,6 +53,8 @@ function getDice1() {
 }
 
 function getDice10() {
+  $('#condice1').removeClass('text-primary').removeClass('text-danger');
+
   var mt = new MersenneTwister();
   var dice1_1 = mt.nextInt(0, 10);
   document.getElementById('result').innerHTML = ("");
@@ -83,6 +88,8 @@ function getDice10() {
 
 
 function getDice6() {
+  $('#condice1').removeClass('text-primary').removeClass('text-danger');
+
   var mt = new MersenneTwister();
   var dice6 = mt.nextInt(0, 6);
   document.getElementById('result').innerHTML = ("");
@@ -107,6 +114,8 @@ function getDice6() {
 
 
 function getDiceall() {
+  $('#condice1').removeClass('text-primary').removeClass('text-danger');
+
   var mt = new MersenneTwister();
   var select = document.getElementById('roll');
   var options = document.getElementById('roll').options;
@@ -159,8 +168,6 @@ function getDiceall() {
 function getDice_skill(){
   var mt = new MersenneTwister();
 
-  var skill_val =   $('#dice_skill_select option:selected').text();
-  console.log(skill_val);
 
   //1d100を振る
   var dice10_1 = mt.nextInt(0, 10);
@@ -192,7 +199,14 @@ function getDice_skill(){
   }
 
   //技能判定result
-    $('#condiceall').innerHTML = (skill_val);
+  var skill_val =   $('#dice_skill_select option:selected').text();
+  document.getElementById('condiceall').innerHTML = (skill_val);
+
+  if (Result <= $('#dice_skill_select option:selected').val()) {//判定成功
+    $('#condice1').attr('class','text-primary');
+  }  else {//判定失敗
+    $('#condice1').attr('class','text-danger');
+  }
 
 
   count--;
@@ -208,10 +222,10 @@ function getDice_skill(){
     var m = gettime.getMonth() + 1;
     var d = gettime.getDate();
     if (deme == 0) {
-      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【100】</span>(" +skill_val+ ")");
+      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【100】</span>("+skill_val+")");
       document.getElementById("dicelog_box").insertBefore(dicelog, dicelog_box.firstChild);
     } else {
-      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【" + deme + "】</span>(" +skill_val+ ")");
+      dicelog.innerHTML = (m + "/" + d + " " + gettime.toLocaleTimeString() + " <span>【" + deme + "】</span>("+skill_val+")");
       document.getElementById("dicelog_box").insertBefore(dicelog, dicelog_box.firstChild);
     }
 

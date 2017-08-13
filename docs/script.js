@@ -1,5 +1,4 @@
 
-
 //タブ bootstrap
 	$('#myTabs a').click(function (e) {
 	  e.preventDefault()
@@ -18,6 +17,7 @@ clipboard.on('success', function(e) {
 clipboard.on('error', function(e) {
     alert("コピーしました…");
 });
+
 
 
 //ページを開いた時に動かすもの
@@ -43,9 +43,9 @@ for(var i in PL_name){
 
 
 //２P目までの探索者を呼び出す。
- var  PL_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
- var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
- var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
+ var  PL_URL = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
+ var  PL_URL_page2 = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
+ var  PL_URL_page3 = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
 
 var request = [
 	 { url: PL_URL },
@@ -100,7 +100,7 @@ $('#json_pc_data').click( function (){
 
 
 	//たつんとふ召喚設定
-	var ttntf_url = '//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+	var ttntf_url = 'http://shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
 
 
  	//--------------------------------------------------------
@@ -134,8 +134,8 @@ $('#json_pc_data').click( function (){
 
 
     var PC_ID_select = $("#PC_name_select").val();
- 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
-		var PC_URL_nojs = '//charasheet.vampire-blood.net/' + PC_ID_select;
+ 		var PC_URL = 'http://charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
+		var PC_URL_nojs = 'http://charasheet.vampire-blood.net/' + PC_ID_select;
 
 
 		//Jquery getjsonで読み込み、データ出力
@@ -389,10 +389,10 @@ $('#json_pc_data').click( function (){
 //GASでコマ画像を読み込む
 //強烈なほどに遅い。
 
-		var ttntf_img = "//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+		var ttntf_img = "http://shower.rash.jp/xx/ddntf/web/imageUploadSpace";
 
 			$.ajax({
-				 url : "//script.googleusercontent.com/macros/echo?user_content_key=7zVpgRmGL9MTW5UbGt8YYCIjKx7wEYDdUZJiraz3M-hQoAKHAb7QSlsP5AWgns2iHUBoaBmVEwHnN3pdJM4Oqv5mhB-Tgz4tm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnG_F_MG9At8nBxYd-bu-zvUYyCgVlwk86LkCwr0bgGMoTP-zvsuNMi_QOc-Mq-5N6uIqWsDnSrEd&lib=M3hoO30ypGuhWoUcK2dBqpDn3jzVRp_Ce",
+				 url : "https://script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec",
 				 type:'GET',
 				 dataType:'json',
 				 success : function(data) {
@@ -413,13 +413,13 @@ $('#json_pc_data').click( function (){
 				var spread_img_0 = data[i].icon_url;
 				var spread_img_url = ttntf_img + spread_img_0.replace(/(local)/gi , "").replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 
-				console.log(data[i].icon_name);
-				console.log(spread_img_url);
 
-	 		 $('#img_URL,#img_URL_smh').attr('src', spread_img_url);
+	 		 $('#img_URL').attr('src', spread_img_url);
+			  $('#img_URL_smh_space').append('<img src="' +spread_img_url+ '" class="media-object img-responsive img-rounded center-block visible-xs"  style="width: 200px; height: 200px;" id="img_URL_smh">');
 	 		// $('#img_URL,#img_URL_smh').attr('data-src', null);
 			 break;
 	 	 }else{
+			  break;
 	 		// $('#img_URL,#img_URL_smh').attr('src',  'holder.js/200x200');
 	 		// $('#img_URL,#img_URL_smh').attr('data-src',);
 	 	 }

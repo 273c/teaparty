@@ -1,7 +1,7 @@
 // mt.js 0.2.4 (2005-12-23)
 
-
 /*
+
 Mersenne Twister in JavaScript based on "mt19937ar.c"
 
  * JavaScript version by Magicant: Copyright (C) 2005 Magicant
@@ -24,8 +24,8 @@ are met:
      notice, this list of conditions and the following disclaimer in the
      documentation and/or other materials provided with the distribution.
 
-  3. The names of its contributors may not be used to endorse or promote
-     products derived from this software without specific prior written
+  3. The names of its contributors may not be used to endorse or promote 
+     products derived from this software without specific prior written 
      permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
@@ -58,7 +58,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 function MersenneTwister(seed) {
 	if (arguments.length == 0)
 		seed = new Date().getTime();
-
+	
 	this._mt = new Array(624);
 	this.setSeed(seed);
 }
@@ -126,7 +126,7 @@ MersenneTwister.prototype.setSeed = function(seed) {
 /** returns the next random Uint32 value. */
 MersenneTwister.prototype._nextInt = function() {
 	var mt = this._mt, value;
-
+	
 	if (this._index >= mt.length) {
 		var k = 0, N = mt.length, M = 397;
 		do {
@@ -141,7 +141,7 @@ MersenneTwister.prototype._nextInt = function() {
 		mt[N-1] = mt[M-1] ^ (value >>> 1) ^ ((value & 1) ? 0x9908b0df : 0);
 		this._index = 0;
 	}
-
+	
 	value = mt[this._index++];
 	value ^=  value >>> 11;
 	value ^= (value <<   7) & 0x9d2c5680;
@@ -174,12 +174,12 @@ MersenneTwister.prototype.nextInt = function() {
 		sup = MersenneTwister._toNumber(arguments[1]) - min;
 		break;
 	}
-
+	
 	if (!(0 < sup && sup < 0x100000000))
 		return this._nextInt() + min;
 	if ((sup & (~sup + 1)) == sup)
 		return ((sup - 1) & this._nextInt()) + min;
-
+	
 	var value;
 	do {
 		value = this._nextInt();
@@ -195,5 +195,5 @@ MersenneTwister.prototype.nextInt = function() {
  */
 MersenneTwister.prototype.next = function() {
 	var a = this._nextInt() >>> 5, b = this._nextInt() >>> 6;
-	return (a * 0x4000000 + b) / 0x20000000000000;
+	return (a * 0x4000000 + b) / 0x20000000000000; 
 };
