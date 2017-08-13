@@ -43,9 +43,9 @@ for(var i in PL_name){
 
 
 //２P目までの探索者を呼び出す。
- var  PL_URL = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
- var  PL_URL_page2 = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
- var  PL_URL_page3 = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
+ var  PL_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
+ var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
+ var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
 
 var request = [
 	 { url: PL_URL },
@@ -100,7 +100,7 @@ $('#json_pc_data').click( function (){
 
 
 	//たつんとふ召喚設定
-	var ttntf_url = 'http://shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+	var ttntf_url = '//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
 
 
  	//--------------------------------------------------------
@@ -134,8 +134,8 @@ $('#json_pc_data').click( function (){
 
 
     var PC_ID_select = $("#PC_name_select").val();
- 		var PC_URL = 'http://charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
-		var PC_URL_nojs = 'http://charasheet.vampire-blood.net/' + PC_ID_select;
+ 		var PC_URL = 'charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
+		var PC_URL_nojs = 'charasheet.vampire-blood.net/' + PC_ID_select;
 
 
 		//Jquery getjsonで読み込み、データ出力
@@ -389,7 +389,7 @@ $('#json_pc_data').click( function (){
 //GASでコマ画像を読み込む
 //強烈なほどに遅い。
 
-		var ttntf_img = "http://shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+		var ttntf_img = "//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
 
 			$.ajax({
 				 url : "https://script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec",
