@@ -86,6 +86,7 @@
 						<li role="presentation" class="active"><a href="#states" aria-controls="home" role="tab" data-toggle="tab">Stetas</a></li>
 						<li role="presentation"><a href="#dice" aria-controls="messages" role="tab" data-toggle="tab">Dice</a></li>
 						<li role="presentation" class="hidden-xs"><a href="#palette" aria-controls="messages" role="tab" data-toggle="tab">Palette</a></li>
+            <li role="presentation" class=""><a href="#ttntf" aria-controls="messages" role="tab" data-toggle="tab">Palette</a></li>
 					</ul>
 
 					<!-- Tab panes -->
@@ -295,7 +296,90 @@
       	      <section id="dicelog_box"></section>
       		  </div>
 
-						</div>
+          </div> <!-- Dice -->
+
+
+          <div role="tabpanel" class="tab-pane fade in" id="ttntf">
+            <div class="row">
+              <div class="col-sm-6 center-block text-center">
+                <h1><span id="condice1" class="condice"></span></h1>
+                <div id="condiceall" class="condice"></div>
+                <p class="lead text-primary" id="result"></p>
+                <h4 class="text-warning">
+                  <!-- CCB<=50<BR /><small>【芸術（技能）】</small> -->
+                </h4>
+              </div>
+              <div class="col-sm-6">
+
+                  <form class="form-inline">
+                    <input type="button" class="btn btn-info btn-lg btn-block" value="1D100" onclick="getDice1();">
+                    <input type="button" class="btn btn-default btn-block hidden-xs" value="1D10" onclick="getDice10();">
+                    <input type="button" class="btn btn-default btn-block hidden-xs" value="1D6" onclick="getDice6();">
+                    <BR /><select id="roll" name="roll" class="diceall input-lg">
+                        <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="8">9</option>
+                      <option value="10">10</option>
+                      <option value="12">12</option>
+                      <option value="15">15</option>
+                      <option value="18">18</option>
+                      <option value="20">20</option>
+                      <option value="24">24</option>
+                    </select>
+                   <span class="diceall_d">D</span>
+                     <select id="men" name="men" class="diceall diceall_right input-lg">
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
+                      <option value="6">6</option>
+                      <option value="7">7</option>
+                      <option value="8">8</option>
+                      <option value="9">9</option>
+                      <option value="10">10</option>
+                      <option value="12">12</option>
+                      <option value="15">15</option>
+                      <option value="18">18</option>
+                      <option value="20">20</option>
+                      <option value="100">100</option>
+                  </select>
+                  <input type="button" class="btn btn-default btn-block" value="ROLL!" onclick="getDiceall();">
+                  </form>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12">
+                <form>
+                  <fieldset>
+                    <div class="form-group">
+                      <!-- 技能選択　-->
+                      <select class="form-control" id="dice_skill_select">
+                        <option selected >判定技能選択</option>
+                        <!-- ここに技能値が入る　-->
+                      </select>
+                      <input type="button" class="btn  btn-danger btn-lg btn-block" value="技能判定" onclick="getDice_skill();">
+                    </div>
+
+                  </fieldset>
+                </form>
+              </div>
+            </div>
+
+
+          <div id="dicelog" class="col-sm-12">
+            <h4><i class="icon-time"></i> ダイスログ</h4>
+            <section id="dicelog_box"></section>
+          </div>
+
+        </div><!-- ttntf -->
+
+
 						<div role="tabpanel" class="tab-pane fade in well " id="palette">
 							<button  type="button" id="copy_btn" class="btn btn-default  btn-info" data-clipboard-target="#copy_filed">クリップボードにコピー</button>
 							<div class="well well-lg" id="copy_filed"></div>

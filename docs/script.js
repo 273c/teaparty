@@ -43,9 +43,9 @@ for(var i in PL_name){
 
 
 //２P目までの探索者を呼び出す。
- var  PL_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
- var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
- var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
+ var  PL_URL = 'charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
+ var  PL_URL_page2 = 'charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
+ var  PL_URL_page3 = 'charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
 
 var request = [
 	 { url: PL_URL },
@@ -304,11 +304,14 @@ $('#json_pc_data').click( function (){
 							.html(str += command + POW*5 + " 【POW*5】" + br)
 							.html(str += command + DEX*5 + " 【DEX*5】" + br)
 							.html(str += command + APP*5 + " 【APP*5】" + br)
-							.html(str += command + "1d3+" + db + " 【こぶしダメージ】" + br)
-							.html(str += command + "1d3" + " 【基本回復量】" + br);
+							.html(str +=  "1d3+" + db + " 【こぶしダメージ】" + br)
+							.html(str +=  "1d3" + " 【基本回復量】" + br);
 
 		//技能判定ダイス用
-		$("#dice_skill_select")
+		$("#dice_skill_select2")
+									.append('<option value="{SAN値}">' +command+ '{SAN値} 【SANチェック】</option>');
+
+		$("#dice_skill_select,#dice_skill_select2")
 							.append('<option value=' +idea+ '>' +command + idea + '【アイディア】</option>')
 							.append('<option value=' +lucky+ '>'+command + lucky + '【幸運】</option>')
 							.append('<option value=' +knowledge+ '>' +command + knowledge + ' 【知識】</option>')
@@ -317,6 +320,10 @@ $('#json_pc_data').click( function (){
 							.append('<option value=' +POW*5+ '>' +command + POW*5 + ' 【POW*5】</option>')
 							.append('<option value=' +DEX*5+ '>' +command + DEX*5 + ' 【DEX*5】</option>')
 							.append('<option value=' +APP*5+ '>' +command + APP*5 + ' 【APP*5】</option>');
+
+		$("#dice_skill_select2")
+									.append('<option value="1d3+ ' +db+' ">1d3+' +db+ '【こぶしダメージ】</option>')
+									.append('<option value="1d3">1d3【基本回復量】</option>');
 
 
 	//--------------------------------------------------------
@@ -351,7 +358,7 @@ $('#json_pc_data').click( function (){
 		var skill_value = data[S_json][j];
 
 
-		if (org && j>=org_start){ //独自スキルのあるターンで独自スキルの番になったら
+	 if (org && j>=org_start){ //独自スキルのあるターンで独自スキルの番になったら
 
 			var name_org = org[r];
 
@@ -363,7 +370,7 @@ $('#json_pc_data').click( function (){
 							.html(str += command + skill_value + " 【" +name_org+"】" + br);
 
 		//技能判定ダイス用
-		$("#dice_skill_select")
+		$("#dice_skill_select,#dice_skill_select2")
 							.append('<option value=' +skill_value+ '>' +command + skill_value + ' 【' +name_org+ '】</option>');
 
 			r++;
@@ -375,7 +382,7 @@ $('#json_pc_data').click( function (){
 							.html( str += command + skill_value + " 【" +skill_name+"】" + br);
 
 		//技能判定ダイス用
-		$("#dice_skill_select")
+		$("#dice_skill_select,#dice_skill_select2")
 							.append('<option value=' +skill_value+ '>' +command + skill_value + ' 【' +skill_name+ '】</option>');
 
 			var r=0;
@@ -415,7 +422,7 @@ $('#json_pc_data').click( function (){
 
 
 	 		 $('#img_URL').attr('src', spread_img_url);
-			  $('#img_URL_smh_space').append('<img src="' +spread_img_url+ '" class="media-object img-responsive img-rounded center-block visible-xs"  style="width: 200px; height: 200px;" id="img_URL_smh">');
+			  $('#img_URL_smh_space').append('<img src="' +spread_img_url+ '" class="media-object img-responsive img-rounded center-block visible-xs"  style="width: 150px; height: 150px;" id="img_URL_smh">');
 	 		// $('#img_URL,#img_URL_smh').attr('data-src', null);
 			 break;
 	 	 }else{
