@@ -426,7 +426,7 @@ $('#json_pc_data').click( function (){
 	 		// $('#img_URL,#img_URL_smh').attr('data-src', null);
 			 break;
 	 	 }else{
-			  break;
+			  continue;
 	 		// $('#img_URL,#img_URL_smh').attr('src',  'holder.js/200x200');
 	 		// $('#img_URL,#img_URL_smh').attr('data-src',);
 	 	 }
