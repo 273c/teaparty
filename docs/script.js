@@ -391,6 +391,7 @@ $('#json_pc_data').click( function (){
 	}
 }
 
+
 		//チャパレ用コマンド表示
 		$("#copy_filed")
 							.html(str +=  br)
