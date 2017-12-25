@@ -299,11 +299,11 @@ $('#json_pc_data').click( function (){
 							.html(str += command + idea + " 【アイディア】" + br)
 							.html(str += command + lucky + " 【幸運】" + br)
 							.html(str += command + knowledge + " 【知識】" + br)
-							.html(str += command + STR*5 + " 【STR*5】" + br)
-							.html(str += command + CON*5 + " 【CON*5】" + br)
-							.html(str += command + POW*5 + " 【POW*5】" + br)
-							.html(str += command + DEX*5 + " 【DEX*5】" + br)
-							.html(str += command + APP*5 + " 【APP*5】" + br)
+							.html(str += command + "({STR}*5)" + " 【STR*5】" + br)
+							.html(str += command + "({CON}*5)" + " 【CON*5】" + br)
+							.html(str += command + "({POW}*5)" + " 【POW*5】" + br)
+							.html(str += command + "({DEX}*5)" + " 【DEX*5】" + br)
+							.html(str += command + "({APP}*5)" + " 【APP*5】" + br)
 							.html(str +=  "1d3+" + db + " 【こぶしダメージ】" + br)
 							.html(str +=  "1d3" + " 【基本回復量】" + br);
 
@@ -390,6 +390,19 @@ $('#json_pc_data').click( function (){
 
 	}
 }
+
+		//チャパレ用コマンド表示
+		$("#copy_filed")
+							.html(str +=  br)
+							.html(str +=  "////////////" +br)
+							.html(str += "//STR=" + STR +  br)
+							.html(str += "//CON=" + CON +  br)
+							.html(str += "//POW=" + POW +  br)
+							.html(str += "//DEX=" + DEX +  br)
+							.html(str += "//APP=" + APP +  br)
+							.html(str += "//SIZ=" + SIZ +  br)
+							.html(str += "//INT=" + INT +  br)
+							.html(str += "//EDU=" + EDU +  br);
 
 
 //--------------------------------------------------------
