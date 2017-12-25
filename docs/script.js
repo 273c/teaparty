@@ -305,6 +305,7 @@ $('#json_pc_data').click( function (){
 							.html(str += command + "({DEX}*5)" + " 【DEX*5】" + br)
 							.html(str += command + "({APP}*5)" + " 【APP*5】" + br)
 							.html(str +=  "1d3+" + db + " 【こぶしダメージ】" + br)
+							.html(str +=  "1d6+" + db + " 【キックダメージ】" + br)
 							.html(str +=  "1d3" + " 【基本回復量】" + br);
 
 		//技能判定ダイス用
