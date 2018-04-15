@@ -7,6 +7,7 @@
   toggle: false
 })
 
+
 //ツールチップ表示 bootstrap
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()

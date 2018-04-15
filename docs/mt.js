@@ -1,5 +1,6 @@
 // mt.js 0.2.4 (2005-12-23)
 
+
 /*
 
 Mersenne Twister in JavaScript based on "mt19937ar.c"

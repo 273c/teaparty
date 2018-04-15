@@ -1,5 +1,4 @@
 
-
 //ページを開いた時に動かすもの
 //PLプルダウン＋PCプルダウン自動チェンジ
 $(document).ready( function(){

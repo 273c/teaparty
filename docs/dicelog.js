@@ -1,5 +1,6 @@
 // JavaScript Document
 
+
 count = 20; //　点滅させる回数
 mSec = 50; //　点滅速度（1秒＝1000）
 
