@@ -38,9 +38,9 @@ else{//クトゥルフモード
 
 //4P目までの探索者を呼び出す。
  var  PL_URL = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
- var  PL_URL_page2 = 'https://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
- var  PL_URL_page3 = 'https://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
- var  PL_URL_page4 = 'https://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=4';
+ var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
+ var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
+ var  PL_URL_page4 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=4';
 
 var request = [
 	 { url: PL_URL },
@@ -146,7 +146,7 @@ $('#states_panell_table').show();//テーブル
 //PCIDを読み込みjsonを引いて、その中で更に値をとるためにまわす
 
     var PC_ID_select = $("#PC_name_select").val();//ＰＣデータ読み込み
- 		var PC_URL = 'https://charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
+ 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
 
 		//Jquery getjsonで読み込み、データ出力
 		get_jsonp (PC_URL).done(function(data){//成功の場合
@@ -177,8 +177,8 @@ $("#pc_name_id,#SAN_HP_MP,#STR_CON_DEX,#idea,#lucky,#knowledge,#db,#copy_filed,#
 
 
     var PC_ID_select = $("#PC_name_select").val();//ＰＣデータ読み込み
- 		var PC_URL = 'http://charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
-		var PC_URL_nojs = 'http://charasheet.vampire-blood.net/' + PC_ID_select;
+ 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
+		var PC_URL_nojs = '//charasheet.vampire-blood.net/' + PC_ID_select +;
 
 		//room呼び出し
 		get_room_info('#room_list');

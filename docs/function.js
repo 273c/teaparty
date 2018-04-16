@@ -7,7 +7,6 @@
   toggle: false
 })
 
-
 //ツールチップ表示 bootstrap
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
@@ -27,10 +26,10 @@ clipboard.on('error', function(e) {
 
 
 	//たつんとふ設定
-	var ttntf_url = 'http://shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+	var ttntf_url = '//shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
 
-	var ttntf_img = "http://shower.rash.jp/xx/ddntf/web/imageUploadSpace";
-	var spread_img_URL = "https://script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
+	var ttntf_img = "//shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+	var spread_img_URL = "//script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
 
 
 //grep
