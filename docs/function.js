@@ -61,7 +61,7 @@ function get_jsonp(url){
 //コマアドレス取得
 function get_koma(Koma_name){
 
-		return get_json(spread_img_URL).done(function(data) {//grepにはできないわ。
+		return get_jsonp(spread_img_URL).done(function(data) {//grepにはできないわ。
 
 						for(var i = 0 ; i < data.length ; i++){//dataの中から探す
 
