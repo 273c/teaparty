@@ -177,8 +177,8 @@ $("#pc_name_id,#SAN_HP_MP,#STR_CON_DEX,#idea,#lucky,#knowledge,#db,#copy_filed,#
 
 
     var PC_ID_select = $("#PC_name_select").val();//ＰＣデータ読み込み
- 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
-		var PC_URL_nojs = '//charasheet.vampire-blood.net/' + PC_ID_select +;
+ 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.json';
+		var PC_URL_nojs = '//charasheet.vampire-blood.net/' + PC_ID_select ;
 
 		//room呼び出し
 		get_room_info('#room_list');
