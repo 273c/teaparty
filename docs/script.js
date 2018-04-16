@@ -37,7 +37,7 @@ else{//クトゥルフモード
     var PL_ID_select = $(this).val();
 
 //4P目までの探索者を呼び出す。
- var  PL_URL = 'http://charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
+ var  PL_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
  var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
  var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
  var  PL_URL_page4 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=4';
