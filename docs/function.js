@@ -69,6 +69,8 @@ function get_koma(Koma_name){
 							var spread_img_0 = data[i].icon_url;
 							var spread_img_url = ttntf_img + spread_img_0.replace(/(local)/gi , "").replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 
+							console.log(spread_img_url);
+
 	 					$("[id=img_URL]").attr('src', spread_img_url);
 						$("[id=img_URL_smh_space]").append('<img src="' +spread_img_url+ '" class="media-object img-responsive img-rounded center-block visible-xs"  style="width: 150px; height: 150px;" id="img_URL_smh">');
 
