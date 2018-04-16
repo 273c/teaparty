@@ -26,9 +26,9 @@ clipboard.on('error', function(e) {
 
 
 	//たつんとふ設定
-	var ttntf_url = '//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+	var ttntf_url = 'https://secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
 
-	var ttntf_img = "//secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+	var ttntf_img = "https://secure644.sakura.ne.jp/shower.rash.jp/xx/ddntf/web/imageUploadSpace";
 	var spread_img_URL = "https://script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
 
 
