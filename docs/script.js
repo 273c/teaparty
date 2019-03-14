@@ -36,17 +36,21 @@ else{//クトゥルフモード
 //値に入っているPLIDを呼びだす
     var PL_ID_select = $(this).val();
 
-//4P目までの探索者を呼び出す。
+//6P目までの探索者を呼び出す。
  var  PL_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
  var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
  var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
  var  PL_URL_page4 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=4';
-
+ var  PL_URL_page5 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=5';
+ var  PL_URL_page6 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=6';
+	
 var request = [
 	 { url: PL_URL },
 	 { url: PL_URL_page2 },
 	 { url: PL_URL_page3 },
 	 { url: PL_URL_page4 },
+	{ url: PL_URL_page5 },
+	{ url: PL_URL_page6 },
 ];
 
 var jqXHRList = [];
@@ -69,6 +73,8 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 	 var page2 = arguments[1][0];
 	 var page3 = arguments[2][0];
 	 var page4 = arguments[3][0];
+	 var page5 = arguments[4][0];
+	 var page6 = arguments[5][0];
 
 	 //なんかこの辺いい感じのスクリプトを思いついたら治そう。多分forループで処理できる。
 	 //あまりに効率悪い。そのうちエラー吐いて死にそう。
@@ -104,6 +110,24 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 		}
 	 	}
 
+	if (page5){ //5ページ目に値がある場合
+	 	for(var i in page5){
+			if (page1[i].system == "クトゥルフ") {
+	 	 var name_replace = page5[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
+	 	 $('#PC_name_select').append($('<option value=' +page5[i].id+ '>').html(page5[i].id +'： '+ name_replace));
+	 		}
+		}
+	 	}
+	
+	if (page6){ //6ページ目に値がある場合
+	 	for(var i in page6){
+			if (page1[i].system == "クトゥルフ") {
+	 	 var name_replace = page6[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
+	 	 $('#PC_name_select').append($('<option value=' +page6[i].id+ '>').html(page6[i].id +'： '+ name_replace));
+	 		}
+		}
+	 	}
+	
 	});//ajax
 
 } //else
