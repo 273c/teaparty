@@ -364,7 +364,7 @@ $("#pc_name_id,#SAN_HP_MP,#STR_CON_DEX,#idea,#lucky,#knowledge,#db,#copy_filed,#
 
 	//チャパレ用コマンド表示
 	$("#copy_filed")
-						.html(str += command + "{SAN値}" + " 【SANチェック】" + br)
+						.html(str += command + "{SAN}" + " 【SANチェック】" + br)
 						.html(str += command + idea + " 【アイディア】" + br)
 						.html(str += command + lucky + " 【幸運】" + br)
 						.html(str += command + knowledge + " 【知識】" + br)
