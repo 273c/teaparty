@@ -526,7 +526,7 @@ get_koma(Name);
 		 					 "room":postRoomNo,
 		 					 "password":password,
 		 					 "name":Name_PC_PL,
-		 					 "counters":"HP:" +HP+ ",MP:" +MP+ ",SAN値:" +SAN+ ",不定:" +SAN_danger,
+		 					 "counters":"HP:" +HP+ ",MP:" +MP+ ",SAN:" +SAN+ ",不定:" +SAN_danger,
 		 					 "initiative":DEX,
 		 					 "isHide":false,
 		 					 "image":img_koma,
