@@ -43,9 +43,6 @@ else{//クトゥルフモード
  var  PL_URL_page4 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=4';
  var  PL_URL_page5 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=5';
  var  PL_URL_page6 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=6';
-var  PL_URL_page7 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=7';
-var  PL_URL_page8 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=8';
-var  PL_URL_page9 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=9';
 	
 var request = [
 	 { url: PL_URL },
@@ -54,9 +51,6 @@ var request = [
 	 { url: PL_URL_page4 },
 	{ url: PL_URL_page5 },
 	{ url: PL_URL_page6 },
-	{ url: PL_URL_page7 },
-	{ url: PL_URL_page8 },
-	{ url: PL_URL_page9 }
 ];
 
 var jqXHRList = [];
@@ -81,9 +75,6 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 	 var page4 = arguments[3][0];
 	 var page5 = arguments[4][0];
 	 var page6 = arguments[5][0];
-	 var page7 = arguments[6][0];
-	 var page8 = arguments[7][0];
-	 var page9 = arguments[8][0];
 	 
 	 
 	 //なんかこの辺いい感じのスクリプトを思いついたら治そう。多分forループで処理できる。
@@ -143,36 +134,7 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 	 		}
 		}
 	 	}
-	
-		if (page7){ //7ページ目に値がある場合
-	 	for(var i in page7){
-			if (page1[i].system == "クトゥルフ") {
-	 	 var name_replace = page7[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
-	 	 $('#PC_name_select').append($('<option value=' +page7[i].id+ '>').html(page7[i].id +'： '+ name_replace));
-	 	  $("#Backup_sheet_table").append('<tr><td>' +page7[i].id + '</td><td>' + name_replace + '</td></tr>');
-	 		}
-		}
-	 	}
-	 	
-	 		if (page8){ //8ページ目に値がある場合
-	 	for(var i in page8){
-			if (page1[i].system == "クトゥルフ") {
-	 	 var name_replace = page8[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
-	 	 $('#PC_name_select').append($('<option value=' +page8[i].id+ '>').html(page8[i].id +'： '+ name_replace));
-	
-	 		}
-		}
-	 	}
-	 	
-	 		if (page9){ //9ページ目に値がある場合
-	 	for(var i in page9){
-			if (page1[i].system == "クトゥルフ") {
-	 	 var name_replace = page9[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
-	 	 $('#PC_name_select').append($('<option value=' +page9[i].id+ '>').html(page9[i].id +'： '+ name_replace));
-	
-	 		}
-		}
-	 	}
+
 	 	
 	 	
 	});//ajax
