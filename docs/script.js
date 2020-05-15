@@ -92,7 +92,7 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 			if (page1[i].system == "クトゥルフ") {
 				var name_replace = page1[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 				$('#PC_name_select').append($('<option value=' +page1[i].id+ '>').html(page1[i].id +'： '+ name_replace));
-	 	  $('#Backup_sheet_table').append($'<tr><td>' +page1[i].id + '</td>').append('<td>' + name_replace + '</td></tr>');
+	 	  $('#Backup_sheet_table').append('<tr><td>' +page1[i].id + '</td>').append('<td>' + name_replace + '</td></tr>');
 	 	  //バックアップスプレッドシート用にIDと名前を出力する
 			}
 		 }
