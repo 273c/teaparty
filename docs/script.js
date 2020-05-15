@@ -166,32 +166,6 @@ DDD_panel(); //DDDのメインパネル
 
 }
 
-else if( $('#PC_name_select option:selected').val() == "PC_states_table" ){//PC一覧モード
-
-$('#states_panell').hide();//クトゥルフモードパネル非表示
-$('#states_panell_table').show();//テーブル
-
-
-//PLのPCリストの中からPCIDをまわす
-
-//option value id pc全部ひく
-
-//PCIDを読み込みjsonを引いて、その中で更に値をとるためにまわす
-
-    var PC_ID_select = $("#PL_name_select").val();//ＰＣデータ読み込み
- 		var PC_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '.js';
-
-		//Jquery getjsonで読み込み、データ出力
-		get_jsonp (PC_URL).done(function(data){//成功の場合
-
-		var Name = data.pc_name.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
-		var	ID = data.data_id;
-			});//get_jsonp
-
-
-
-}//elseif
-
 else{//クトゥルフモード
 $('#states_panell_table').hide();//テーブル
 
