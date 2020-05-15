@@ -36,13 +36,16 @@ else{//クトゥルフモード
 //値に入っているPLIDを呼びだす
     var PL_ID_select = $(this).val();
 
-//6P目までの探索者を呼び出す。
+//9P目までの探索者を呼び出す。
  var  PL_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js';
  var  PL_URL_page2 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=2';
  var  PL_URL_page3 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=3';
  var  PL_URL_page4 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=4';
  var  PL_URL_page5 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=5';
  var  PL_URL_page6 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=6';
+var  PL_URL_page7 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=7';
+var  PL_URL_page8 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=8';
+var  PL_URL_page9 = '//charasheet.vampire-blood.net/' +PL_ID_select+ '_list.js?page=9';
 	
 var request = [
 	 { url: PL_URL },
@@ -51,6 +54,9 @@ var request = [
 	 { url: PL_URL_page4 },
 	{ url: PL_URL_page5 },
 	{ url: PL_URL_page6 },
+	{ url: PL_URL_page7 },
+	{ url: PL_URL_page8 },
+	{ url: PL_URL_page9 }
 ];
 
 var jqXHRList = [];
@@ -75,13 +81,19 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 	 var page4 = arguments[3][0];
 	 var page5 = arguments[4][0];
 	 var page6 = arguments[5][0];
-
+	 var page7 = arguments[6][0];
+	 var page8 = arguments[7][0];
+	 var page9 = arguments[8][0];
+	 
+	 
 	 //なんかこの辺いい感じのスクリプトを思いついたら治そう。多分forループで処理できる。
 	 //あまりに効率悪い。そのうちエラー吐いて死にそう。
 		for(var i in page1){ //１P目の中で回す
 			if (page1[i].system == "クトゥルフ") {
 				var name_replace = page1[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 				$('#PC_name_select').append($('<option value=' +page1[i].id+ '>').html(page1[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page1[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
+	 	  //バックアップスプレッドシート用にIDと名前を出力する
 			}
 		 }
 	 if (page2){ //２ページ目に値がある場合
@@ -89,6 +101,7 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 			if (page1[i].system == "クトゥルフ") {
 			 var name_replace = page2[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 			 $('#PC_name_select').append($('<option value=' +page2[i].id+ '>').html(page2[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page2[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
 		 }
 		 }
 	 }
@@ -97,6 +110,7 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 			if (page1[i].system == "クトゥルフ") {
 	 	 var name_replace = page3[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 	 	 $('#PC_name_select').append($('<option value=' +page3[i].id+ '>').html(page3[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page3[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
 	 		}
 		}
 	 	}
@@ -106,6 +120,7 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 			if (page1[i].system == "クトゥルフ") {
 	 	 var name_replace = page4[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 	 	 $('#PC_name_select').append($('<option value=' +page4[i].id+ '>').html(page4[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page4[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
 	 		}
 		}
 	 	}
@@ -115,6 +130,7 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 			if (page1[i].system == "クトゥルフ") {
 	 	 var name_replace = page5[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 	 	 $('#PC_name_select').append($('<option value=' +page5[i].id+ '>').html(page5[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page5[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
 	 		}
 		}
 	 	}
@@ -124,10 +140,42 @@ $('#PC_name_select').append('<option value="PC_states_table">PC一覧</option>')
 			if (page1[i].system == "クトゥルフ") {
 	 	 var name_replace = page6[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 	 	 $('#PC_name_select').append($('<option value=' +page6[i].id+ '>').html(page6[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page6[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
 	 		}
 		}
 	 	}
 	
+		if (page7){ //7ページ目に値がある場合
+	 	for(var i in page7){
+			if (page1[i].system == "クトゥルフ") {
+	 	 var name_replace = page7[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
+	 	 $('#PC_name_select').append($('<option value=' +page7[i].id+ '>').html(page7[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page7[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
+	 		}
+		}
+	 	}
+	 	
+	 		if (page8){ //8ページ目に値がある場合
+	 	for(var i in page8){
+			if (page1[i].system == "クトゥルフ") {
+	 	 var name_replace = page8[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
+	 	 $('#PC_name_select').append($('<option value=' +page8[i].id+ '>').html(page8[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page8[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
+	 		}
+		}
+	 	}
+	 	
+	 		if (page9){ //9ページ目に値がある場合
+	 	for(var i in page9){
+			if (page1[i].system == "クトゥルフ") {
+	 	 var name_replace = page9[i].title.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
+	 	 $('#PC_name_select').append($('<option value=' +page9[i].id+ '>').html(page9[i].id +'： '+ name_replace));
+	 	  $('#Backup_sheet_table').append($'<tr><td>' +page9[i].id + '</td>').append($'<td>' + name_replace + '</td></tr>');
+	 		}
+		}
+	 	}
+	 	
+	 	
 	});//ajax
 
 } //else
@@ -169,25 +217,14 @@ $('#states_panell_table').show();//テーブル
 
 //PCIDを読み込みjsonを引いて、その中で更に値をとるためにまわす
 
-    var PC_ID_select = $("#PC_name_select").val();//ＰＣデータ読み込み
- 		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
+    var PC_ID_select = $("#PL_name_select").val();//ＰＣデータ読み込み
+ 		var PC_URL = '//charasheet.vampire-blood.net/' +PL_ID_select+ '.js';
 
 		//Jquery getjsonで読み込み、データ出力
 		get_jsonp (PC_URL).done(function(data){//成功の場合
 
 		var Name = data.pc_name.replace(/\(/g, '（').replace(/\)/g, '）').replace(/（.*?）/gi , "").replace(/　/g,"").replace(/\s/g,"");
 		var	ID = data.data_id;
-		var SAN = data.SAN_Left;
-		var	HP = data.NP9;
-		var	STR = data.NP1,
-				CON = data.NP2,
-				POW = data.NP3,
-				DEX = data.NP4,
-				APP = data.NP5,
-				SIZ = data.NP6,
-				INT = data.NP7,
-				EDU = data.NP8;
-
 			});//get_jsonp
 
 
