@@ -10,6 +10,7 @@
 
     <title>お茶会の魔法瓶</title>
 
+
     <!-- Bootstrap Core CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
@@ -32,10 +33,34 @@
 <div class="container">
 	<div class="container-fluid">
 		<div class="row">
+
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        <h3>お茶会の魔法瓶</h3>
+        </div>
+   <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav navbar-right">
+              <li><a href="#states_panell_NEWDICE" class="glyphicon glyphicon-plus" data-toggle="collapse" aria-expanded="false" aria-controls="states_panell_NEWDICE">新規キャラ</a></li>
+            <li><a href="http://shower.rash.jp/xx/ddntf/web/jukebox/"><span class="glyphicon glyphicon-headphones" aria-hidden="true">ジュークボックス</span></a></li>
+            <li><a href="https://docs.google.com/spreadsheets/d/1Cesl2UhDeCenPmoI3GDWuzKkeJPedNWx_xUJ2kkqEGU/edit?usp=sharing"><span class="glyphicon glyphicon-cloud-download" aria-hidden="true">食堂のやかん</span></a></li>
+          </ul>
+        </div>
+        </div><!-- /.navbar-collapse -->
+
+      </div><!-- /.container-fluid -->
+    </nav>
 			<div class="col-sm-12">
-				<div class="page-header">
-				  <h2>お茶会の魔法瓶　<a href="http://shower.rash.jp/xx/ddntf/web/jukebox/"><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span></a></h2> 
-				</div>
+
 
 								<form >
   								<fieldset>
@@ -65,17 +90,160 @@
 				<a href="https://charasheet.vampire-blood.net/54098_list.html">みやくマイリスト</a><BR>
 				<a href="https://charasheet.vampire-blood.net/62183_list.html">せばたマイリスト</a><BR>
 				</div> -->
-  
+
 			</div>
 		</div>
 
   <div id="field"><!--　パネル全体　 -->
 
+<!--　新規キャラダイス　 -->
+<div class="row well collapse" id="states_panell_NEWDICE" >
+
+
+  <div id="NEWDICE_main" style="display: true;">
+<BR>
+
+	<div class="col-xs-12 col-md-3 text-center center-block ">
+
+              <form class="form-horizontal">
+             <div class="form-group">
+               <span class="dicebtn"><input type="button" class="btn btn-danger btn-block btn-lg" value="ダイスを振る" onclick="new_all();"></span>
+                 <BR>
+                   <a id="tweet" class="btn btn-info btn-block">ツイートする</a>
+                  <!-- <a id="hokanjyo_newsheet" class="btn btn-success btn-block">保管所で作る</a> -->
+
+            </div>
+          </form>
+      </div>
+
+
+
+    <div class="col-xs-12 col-md-9"><!-- カラム -->
+
+
+
+      <table class="table table-responsive table-bordered " >
+    <tr>
+      <th>STR</th>
+      <td><span id="new_result_str" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="3D6" onclick="new_str();"></span></td>
+    </tr>
+
+    <tr>
+      <th>CON</th>
+      <td><span id="new_result_con" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="3D6" onclick="new_con();"></span></td>
+    </tr>
+
+    <tr>
+      <th>POW</th>
+      <td><span id="new_result_pow" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="3D6" onclick="new_pow();"></span></td>
+    </tr>
+
+    <tr>
+      <th>DEX</th>
+      <td><span id="new_result_dex" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="3D6" onclick="new_dex();"></span></td>
+    </tr>
+
+    <tr>
+      <th>APP</th>
+      <td><span id="new_result_app" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="3D6" onclick="new_app();"></span></td>
+    </tr>
+
+    <tr>
+      <th>SIZ</th>
+      <td><span id="new_result_siz" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="2D6+6" onclick="new_siz();"></span></td>
+    </tr>
+
+    <tr>
+      <th>INT</th>
+      <td><span id="new_result_int" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="2D6+6" onclick="new_int();"></span></td>
+    </tr>
+
+    <tr>
+      <th>EDU</th>
+      <td><span id="new_result_edu" class="condice"></span></td>
+      <td> <span class="dicebtn"><input type="button" class="btn btn-block" value="3D6+3" onclick="new_edu();"></span></td>
+    </tr>
+
+  </table>
+
+
+<div class="panel panel-info">
+<table class="table table-responsive panel-body table-bordered table-condensed" >
+    <tr>
+      <th colspan="3" class="bg-info">項目</th>
+      </tr>
+        <Tr id="beauty">
+        <tr>
+          <th>SAN</th>
+          <td><span id="new_result_SAN" class="condice"></span></td>
+          <td class="text-muted">POW*5</td>
+        </tr>
+        <tr>
+          <th>幸運</th>
+          <td><span id="new_result_LUCKY" class="condice"></span></td>
+          <td class="text-muted">POW*5</td>
+        </tr>
+        <tr>
+          <th>アイディア</th>
+          <td><span id="new_result_IDEA" class="condice"></span></td>
+          <td class="text-muted">INT*5</td>
+        </tr>
+        <tr>
+          <th>知識</th>
+          <td><span id="new_result_KNOW" class="condice"></span></td>
+          <td class="text-muted">EDU*5</td>
+        </tr>
+        <tr>
+          <th>HP</th>
+          <td><span id="new_result_HP" class="condice"></span></td>
+          <td class="text-muted">(CON+SIZ)/2</td>
+        </tr>
+        <tr>
+          <th>MP</th>
+          <td><span id="new_result_MP" class="condice"></span></td>
+          <td class="text-muted">POW*1</td>
+        </tr>
+        <tr>
+          <th>職業技能</th>
+          <td><span id="new_result_SHOKUGYO" class="condice"></span></td>
+          <td class="text-muted">EDU*20</td>
+        </tr>
+        <tr>
+          <th>趣味技能</th>
+          <td><span id="new_result_SHUMI" class="condice"></span></td>
+          <td class="text-muted">INT*10</td>
+        </tr>
+        <tr>
+          <th>DB</th>
+          <td><span id="new_result_DB" class="condice"></span></td>
+          <td class="text-muted">STR+SIZ</td>
+        </tr>
+
+        </tr>
+  </table>
+      </div>
+ <a id="iachara_newsheet" class="btn btn-warning btn-block">いあきゃらで作る</a>
+    </div><!-- 左カラム -->
+
+
+
+
+  </div><!-- 新規キャラダイス_main-->
+	</div>
+
+
+
+
 <!-- DDDモード -->
 
-  <div class="row" id="states_panell_DDD" style="display: none;">
-
-
+<div class="row" id="states_panell_DDD" style="display: none;">
 <div class="jumbotron" id="DDD_info">
   <h2>DDDご主人様シート</h2>
   どどんとふのメニュー「ロード」→「一部読み込み」→「カットイン」「イニシアティブ表」<BR>
@@ -155,6 +323,7 @@
 	</div>
 
 
+
 <!-- クトゥルフモード -->
 
 	<div class="row" id="states_panell_table" style="display: none;">
@@ -224,13 +393,12 @@
 							 </table>
 							 </div>
 
-				<div class="panel-group" id="accordion" role="tablist" >
+
 					 <div class="panel panel-default">
 						 <div class="panel-heading" role="tab" id="heading_first">
-							 <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+
           基本ステ技能
-        </a></div>
-					<div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading_first">
+        </div>
 						<table class="table table-responsive  panel-body table-condensed" >
 							<tr>
 								<th>アイデア</th>
@@ -249,15 +417,15 @@
 								<td id="db"></td>
 							</tr>
 						</table>
-					</div></div>
+					</div>
 
 
 					<div class="panel panel-default">
 					<div class="panel-heading" role="tab" id="heading2">
-						<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+
           戦闘技能
-        </a></div>
-  					  <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading2">
+      </div>
+
 							<table class="table table-responsive table-bordered panel-body table-condensed">
                 	<thead>
 		<tr>
@@ -273,13 +441,14 @@
 
               </tbody>
 											</table>
-										</div></div>
+										</div>
+
+
 										 <div class="panel panel-default">
 											 <div class="panel-heading" role="tab" id="heading3">
-												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse3" aria-expanded="true" aria-controls="collapse3">
+
           探索技能
-        </a></div>
-  					  <div id="collapse3" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading3">
+        </div>
 											<table class="table table-responsive  table-bordered panel-body table-condensed">
                                         	<thead>
                         		<tr>
@@ -295,14 +464,14 @@
 
                       </tbody>
 											</table>
-										</div></div>
+										</div>
 
 										 <div class="panel panel-default">
 											 <div class="panel-heading" role="tab" id="heading4">
-												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse4" aria-expanded="true" aria-controls="collapse4">
+
           行動技能
-        </a></div>
-  					  <div id="collapse4" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading4">
+        </div>
+
 											<table class="table table-responsive table-bordered panel-body table-condensed">
                                         	<thead>
                         		<tr>
@@ -318,14 +487,14 @@
 
                       </tbody>
 											</table>
-										</div></div>
+										</div>
 
 										 <div class="panel panel-default">
 											 <div class="panel-heading" role="tab" id="heading5">
-												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse5" aria-expanded="true" aria-controls="collapse5">
+
           交渉技能
-        </a></div>
-  					  <div id="collapse5" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading5">
+      </div>
+
 											<table class="table table-responsive table-bordered panel-body table-condensed">
                                         	<thead>
                         		<tr>
@@ -342,14 +511,14 @@
                         </tbody>
 
 											</table>
-										</div></div>
+										</div>
 
 										 <div class="panel panel-default">
 											 <div class="panel-heading" role="tab" id="heading6">
-												 <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse6" aria-expanded="true" aria-controls="collapseTwo">
+
           知識技能
-        </a></div>
-  					  <div id="collapse6" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading6">
+        </div>
+
 											<table class="table table-responsive table-bordered panel-body table-condensed">
                                         	<thead>
                         		<tr>
@@ -366,9 +535,9 @@
                         </tbody>
 
 											</table>
-										</div></div>
+										</div>
 
-</div>
+
 
 								</div>
 
@@ -506,6 +675,7 @@
 <script src="mt.js" type="text/javascript" ></script>
 <script src="function.js"></script>
 <script src="DDD.js"></script>
+<script src="new_chara.js"></script>
 <script src="script.js"></script>
 
 </html>
