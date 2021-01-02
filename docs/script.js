@@ -315,7 +315,7 @@ $("#pc_name_id,#SAN_HP_MP,#STR_CON_DEX,#idea,#lucky,#knowledge,#db,#copy_filed,#
 
 		$("#pc_name_id").append($('<h2 id="name">' + Name + ' <small id="PC_id">(' + age + '歳) <a href=' + PC_URL_nojs + '><span class="glyphicon glyphicon-file" aria-hidden="true"></span></a><BR>'+ shokugyo + '</small>'));
 
-		$("#SAN_HP_MP").append($('<li><h3 id="SAN">SAN:' + SAN + '/<small id="SAN_danger">不定:' + SAN_danger +'</small></h3>')).append($('<li><h4 id="HP">HP:' + HP + '</h4>')).append($('<li><h4 id="MP">MP:' + MP + '</h4>'));
+		$("#SAN_HP_MP").append($('<li><h3 id="SAN">SAN:' + SAN + '/<small id="SAN_danger">不定:' + SAN_danger +'</small></h3>')).append($('<li><h4 id="DEX">DEX:' + DEX + '</h4>')).append($('<li><h4 id="HP">HP:' + HP + '</h4>')).append($('<li><h4 id="MP">MP:' + MP + '</h4>'));
 
 		$("#STR_CON_DEX")
 		.append('<td id="STR">' + STR + '/<span class="text-muted">' + STR*5 + '</span></td>')
