@@ -23,3 +23,8 @@ body {
 .navbar,.container-fluid,.navbar-header,.h3{
 margin-left:5px;
 }
+
+.ccfolia{
+	width: 1px; height: 1px; opacity: 0;
+	overflow: auto;
+}
