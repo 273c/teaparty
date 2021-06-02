@@ -345,8 +345,10 @@ $("#pc_name_id,#SAN_HP_MP,#STR_CON_DEX,#idea,#lucky,#knowledge,#db,#copy_filed,#
 						.html(str += command + "({POW}*5)" + " 【POW*5】" + br)
 						.html(str += command + "({DEX}*5)" + " 【DEX*5】" + br)
 						.html(str += command + "({APP}*5)" + " 【APP*5】" + br)
-						.html(str +=  "1d3+" + db + " 【こぶしダメージ】" + br)
-						.html(str +=  "1d6+" + db + " 【キックダメージ】" + br)
+						.html(str += command + "({SIZ}*5)" + " 【SIZ*5】" + br)
+						.html(str += command + "({INT}*5)" + " 【INT*5】" + br)
+						.html(str +=  "1d3+{DB}" + " 【こぶしダメージ】" + br)
+						.html(str +=  "1d6+{DB}" + " 【キックダメージ】" + br)
 						.html(str +=  "1d3" + " 【基本回復量】" + br);
 
 	//技能判定ダイス用
@@ -447,11 +449,11 @@ for(var i=0;i<S_list.length;i++){ //スキルカテゴリー数毎に
 }
 }
 
-
 	//チャパレ用コマンド表示
 	$("#copy_filed")
 						.html(str +=  br)
-						.html(str +=  "////////////" +br)
+						.html(str +=  "//////////" +br)
+						.html(str += "//DB=" + db +  br)
 						.html(str += "//STR=" + STR +  br)
 						.html(str += "//CON=" + CON +  br)
 						.html(str += "//POW=" + POW +  br)
@@ -462,98 +464,88 @@ for(var i=0;i<S_list.length;i++){ //スキルカテゴリー数毎に
 						.html(str += "//EDU=" + EDU +  br);
 
 
-//--------------------------------------------------------
-
-
 //GASでコマ画像を読み込む
 get_koma(Name);
 
-
-	$('#ttntf_go').one('click', function(){//これのせいで２回コマが送られてしまう。
-
-		 	//たつんとふ送信専用
-		 	var PL_name = $('#PL_name_select option:selected').text();
-		 	var Name_PC_PL = Name + "＠" + PL_name ;
+var cc_moto = $("#copy_filed").html().replace(/&lt;/g,"<");
+var cc_array = cc_moto.split("<br>").slice(0, -11);
 
 
-		 	var postUser = "魔法瓶";
-		 	var postMessage = ""+Name_PC_PL+"を召喚しました。";
-
-		 	var postRoomNo = $('#room_list option:selected').val();
-		 	var password = null;
-
-		 	//パスワード確認
-		 		 if (password == null) {
-		 		 password = window.prompt("ルームパスワードの入力","");
-		 		 if (password == null) {
-		 			 return;
-		 		 }
-		 	 }
-
-		 			$.ajax({
-		 				 url : ttntf_url,
-		 				 type:'GET',
-		 				 data:  {
-		 					 "webif":"addCharacter",
-		 					 "room":postRoomNo,
-		 					 "password":password,
-		 					 "name":Name_PC_PL,
-		 					 "counters":"HP:" +HP+ ",MP:" +MP+ ",SAN:" +SAN+ ",不定:" +SAN_danger,
-		 					 "initiative":DEX,
-		 					 "isHide":false,
-		 					 "image":img_koma,
-		 					 "x":1,
-		 					 "y":1,
-		 					 "size":3,
-		 					 "url":PC_URL_nojs
-		 				 },
-		 				 dataType:'jsonp',
-		 			 success : function(data) {
-		 					 completeConnection(data);
-		 				 },
-		 			 error: function() {
-		 					 completeConnection();
-		 				 }
-		 			});
+var cc_palette= "";
+for (var q = 0; q<= cc_array.length -1;q++){
+	cc_palette += cc_array[q]+'\n';
+}
 
 
-		 	 // どどんとふとの接続完了
-		 	 function completeConnection(data) {
-		 		 if (!data) {
-		 			 alert("連携に失敗しました。接続するURL、バージョンを確認してください。");
-		 			 password = null;
-		 		 } else if (data.result != "OK") {
-		 			 alert("連携に失敗しました。パスワードが正しいか確認してください。");
-					 console.log(data.result);
-		 			 password = null;
-		 		 } else {
-		 		//	  成功
-		 		$.ajax({
-		 			 url : ttntf_url,
-		 			 type:'GET',
-		 			 data: {
-		 				 "webif":"talk",
-		 				 "room":postRoomNo,
-		 				 "password":password,
-		 				 "name":postUser,
-		 				 "message":postMessage
-		 			 },
-		 			 dataType:'jsonp',
-		 		 success : function(data) {
-		 				 alert("【" + Name_PC_PL + "】を" +postRoomNo+ "番部屋に召還しました。");
-					 },
-					 error: function() {
+//--------------------------------------------------------
+//ココフォリアコマ用
 
-					 }
-		 		});
+var ccfolia= {
+    kind: 'character',
+    data: {
+        name:Name,
+		memo:null,
+        initiative:Number( DEX ),
+        externalUrl:'https://charasheet.vampire-blood.net/' + PC_ID_select,
+        status:[
+            {
+                label:"HP",
+                value:HP,
+                max:HP,
+            },{
+                label:"MP",
+                value:MP,
+                max:MP,
+            },{
+                label:"SAN",
+                value:SAN,
+                max:SAN,
+            }
+        ],//status end
+        params:[
+            {
+                label:"STR",
+                value:STR,
+            },{
+                label:"CON",
+                value:CON,
+            },{
+                label:"POW",
+                value:POW,
+            },{
+                label:"DEX",
+                value:DEX,
+            },{
+                label:"APP",
+                value:APP,
+            },{
+                label:"SIZ",
+                value:SIZ,
+            },{
+                label:"INT",
+                value:INT,
+            },{
+                label:"EDU",
+                value:EDU,
+            },{
+                label:"DB",
+                value:db,
+            }
+        ],//params end
+        commands:cc_palette
+    },
+}
 
-		 		 }
-		 	 }
-		  return false;
-		  });
+var cc_json = JSON.stringify( ccfolia );
 
+document.getElementById('copy_ccfolia').textContent = cc_json ;
+
+//--------------------------------------------------------
 
 });
+
+
+
 
 $('#states_panell').show();//クトゥルフモードパネル表示
 
