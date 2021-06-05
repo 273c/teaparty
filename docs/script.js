@@ -532,17 +532,72 @@ var ccfolia= {
                 value:db,
             }
         ],//params end
+		faces: [
+			{
+				iconUrl: null,
+				label: "通常",
+			}
+		],//faces end
         commands:cc_palette
     },
 }
 
+console.log( ccfolia.data.faces );
+console.log( ccfolia );
+
 var cc_json = JSON.stringify( ccfolia );
+var faceadd = ccfolia.data.faces;
 
 document.getElementById('copy_ccfolia').textContent = cc_json ;
 
+$('#add_sabun').click(function() {//差分オプション
+
+if ($('input[name="add_CRFF"]').prop('checked')) {//クリファン差分
+		faceadd[faceadd.length] = {iconUrl: null,label: "決定的成功/スペシャル",};
+		faceadd[faceadd.length] = {iconUrl: null,label: "致命的失敗",};
+
+		var cc_json = JSON.stringify( ccfolia );
+		document.getElementById('copy_ccfolia').textContent = cc_json ;
+	 
+	} else { // もしチェックが外れていたら追加した項目を消す
+		const labels = ['決定的成功/スペシャル','致命的失敗'];
+		labels.forEach((label) => {
+			const index = faceadd.findIndex((v) => v.label === label);
+			faceadd.splice(index, 1);
+		  });
+		var cc_json = JSON.stringify( ccfolia );
+		document.getElementById('copy_ccfolia').textContent = cc_json ;
+	}//クリファン差分終了
+
+});//差分オプション
+
+
+$('#add_sabun2').click(function() {//差分オプション
+
+if ($('input[name="add_OKNG"]').prop('checked')) {//技能成功失敗差分
+	faceadd[faceadd.length] = {iconUrl: null,label: "成功",};
+	faceadd[faceadd.length] = {iconUrl: null,label: "失敗",};
+
+	var cc_json = JSON.stringify( ccfolia );
+	document.getElementById('copy_ccfolia').textContent = cc_json ;
+ 
+} else { // もしチェックが外れていたら追加した項目を消す
+	const labels = ['成功','失敗'];
+	labels.forEach((label) => {
+		const index = faceadd.findIndex((v) => v.label === label);
+		faceadd.splice(index, 1);
+	  });
+	var cc_json = JSON.stringify( ccfolia );
+	document.getElementById('copy_ccfolia').textContent = cc_json ;
+}//成功失敗差分終了
+
+});//差分オプション
+
+
+
 //--------------------------------------------------------
 
-});
+});//PCPLメニュークリック動作終わり
 
 
 
