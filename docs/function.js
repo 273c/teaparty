@@ -59,7 +59,6 @@ function get_jsonp(url){
 					 url : url,
 					 type:'GET',
 					 dataType:'jsonp',
-					 callbackName: "callbackFunction"
 				});
 };
 
