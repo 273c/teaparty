@@ -1,3 +1,15 @@
+
+
+	//たつんとふ設定
+	var ttntf_url = 'https://shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
+
+	var ttntf_img = "https://shower.rash.jp/xx/ddntf/web/imageUploadSpace";
+	var spread_img_URL = "//script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
+
+	//特徴表スプレッドシート
+	var spread_features = "//script.google.com/macros/s/AKfycbwOX8D0i63LMYw5XC-icMy6I0wGSppYxyMIKoz9FklfcFGHN8BKiEvJc-NxpNaibH9qHw/exec";
+
+
 //タブ bootstrap
 	$('#myTabs a').click(function (e) {
 	  e.preventDefault()
@@ -25,12 +37,6 @@ clipboard.on('error', function(e) {
 });
 
 
-	//たつんとふ設定
-	var ttntf_url = 'https://shower.rash.jp/xx/ddntf/web/DodontoF/DodontoFServer.rb';
-
-	var ttntf_img = "https://shower.rash.jp/xx/ddntf/web/imageUploadSpace";
-	var spread_img_URL = "//script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
-
 
 //grep
 function get_grep(dataAry, key, value) {
@@ -53,6 +59,7 @@ function get_jsonp(url){
 					 url : url,
 					 type:'GET',
 					 dataType:'jsonp',
+					 callbackName: "callbackFunction"
 				});
 };
 
@@ -89,26 +96,34 @@ function get_koma(Koma_name){
 
 
 
-//-----------------------------------------------------------------------------
+//特徴表スプレ呼び出し　クロスドメインで怒られてるよ
+function get_features(Dice_category, Dice_num){
 
-//ルーム情報を読み込む
-function get_room_info(e){
+	return get_jsonp(spread_features).done(function(data) {//grepにはできないわ。
 
-		$.ajax({
-			 url : ttntf_url,
-			 type:'GET',
-			 data: {
-				webif:"getRoomList"
-			 },
-			 dataType:'jsonp',
-		}).done(function(data_room) {
+		console.log(data);
 
-			for(var i=0;i<data_room.playRoomStates.length;i++){
-			$(e)
-				.append('<option value='+data_room.playRoomStates[i].index+ '>' + data_room.playRoomStates[i].index +'：' + data_room.playRoomStates[i].playRoomName+'</option>');
-			}//for
+		for(var i = 0 ; i < data.length ; i++){//dataの中から探す
 
-			});
-}
+		if (Dice_category == data[i].category && Dice_num == data[i].num){
 
-//-----------------------------------------------------------------------------
+		var features_name = data[i].name;
+		var features_txt = data[i].txt;
+
+		console.log(features_name);
+		console.log(features_txt);
+
+		document.getElementById('new_result_features').innerHTML = ('<b>' + Dice_category + "-" + Dice_num + " 『" + features_name + "』</b><BR>" + features_txt);
+
+					break;
+
+		}else{
+				continue;
+		 }
+				} //for
+	
+	 return features_result = features_name;
+	});
+
+		};
+
