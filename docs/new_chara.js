@@ -160,6 +160,28 @@
 	}
 
 
+function new_features() {
+    var mt = new MersenneTwister();
+
+    var dice10_1 = mt.nextInt(1, 6);
+    var dice10_2 = mt.nextInt(1, 10);
+
+	//get_features(dice10_1, dice10_2);
+
+	var features_name = features[dice10_1][dice10_2].name;
+	var features_txt = features[dice10_1][dice10_2].txt;
+
+	document.getElementById('new_result_features').innerHTML = ('<b>' + dice10_1 + "-" + dice10_2 + " 『" + features_name + "』</b><BR>" + features_txt);
+
+
+    count--;
+    if (count >=1 )	{ tim = setTimeout("new_features()",mSec);}
+    if (count ==0 )	{ count = 20 ;}
+
+}
+
+
+
 function new_all() {
 		var mt = new MersenneTwister();
 
