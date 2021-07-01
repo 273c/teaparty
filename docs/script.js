@@ -176,8 +176,6 @@ $("#pc_name_id,#SAN_HP_MP,#STR_CON_DEX,#idea,#lucky,#knowledge,#db,#copy_filed,#
  		var PC_URL = '//charasheet.vampire-blood.net/' +PC_ID_select+ '.js';
 		var PC_URL_nojs = '//charasheet.vampire-blood.net/' + PC_ID_select ;
 
-		//room呼び出し
-		get_room_info('#room_list');
 
 //--------------------------------------------------------
 
@@ -542,9 +540,6 @@ var ccfolia= {
     },
 }
 
-console.log( ccfolia.data.faces );
-console.log( ccfolia );
-
 var cc_json = JSON.stringify( ccfolia );
 var faceadd = ccfolia.data.faces;
 
@@ -598,7 +593,6 @@ if ($('input[name="add_OKNG"]').prop('checked')) {//技能成功失敗差分
 //--------------------------------------------------------
 
 });//PCPLメニュークリック動作終わり
-
 
 
 
