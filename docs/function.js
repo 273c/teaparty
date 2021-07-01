@@ -7,7 +7,7 @@
 	var spread_img_URL = "//script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
 
 	//特徴表スプレッドシート
-	var spread_features = "//script.google.com/macros/s/AKfycbwOX8D0i63LMYw5XC-icMy6I0wGSppYxyMIKoz9FklfcFGHN8BKiEvJc-NxpNaibH9qHw/exec";
+	//var spread_features = "//script.google.com/macros/s/AKfycbwOX8D0i63LMYw5XC-icMy6I0wGSppYxyMIKoz9FklfcFGHN8BKiEvJc-NxpNaibH9qHw/exec";
 
 
 //タブ bootstrap
