@@ -324,7 +324,6 @@ else {document.getElementById('new_result_HP').innerHTML = ("-")}
 
 	}
 
-　
 
 //ツイートボタンが押された時の処理
 $('#tweet').click(function() {
