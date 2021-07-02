@@ -99,7 +99,7 @@ function get_koma(Koma_name){
 //0701クロスドメインで怒られてるよ 0702解決した。新しいバージョンのGASのデプロイアドレスだと動かない。旧バージョンエディタからデプロイしたら動くよ。
 //勝手にD特徴のダイスを振った。
 
-function get_features(Dice_category, Dice_num, Dice_Dcate){
+function get_features(Dice_category, Dice_num, Dice_dcate){
 
 	return get_json(spread_features).done(function(data) {//grepにはできないわ。
 
@@ -109,11 +109,14 @@ function get_features(Dice_category, Dice_num, Dice_Dcate){
 
 		var features_name = data[i].name;
 		var features_txt = data[i].txt;
-		var features_D = Dice_Dcate * 10;
+		var features_D = Dice_dcate * 10;
+
+		console.log(Dice_dcate);
+		console.log(features_D);
 
 		if (Dice_category== 4){ //D特徴
 
-			document.getElementById('new_result_features').innerHTML = ('<td ><span class="condice"><b>' + Dice_category + "-" + Dice_num + " 『" + features_name + "』</b> 追加P " + features_D + " = 1d6(" + Dice_Dcate +")*10<BR>" + features_txt + '</span></td>');
+			document.getElementById('new_result_features').innerHTML = ('<td ><span class="condice"><b>' + Dice_category + "-" + Dice_num + " 『" + features_name + "』</b> 追加P " + features_D + " = 1d6(" + Dice_dcate +")*10<BR>" + features_txt + '</span></td>');
 
 		}else{
 
@@ -131,5 +134,4 @@ function get_features(Dice_category, Dice_num, Dice_Dcate){
 	});
 
 		};
-
 
