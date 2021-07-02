@@ -166,7 +166,7 @@
     var dice10_1 = mt.nextInt(1, 6);
     var dice10_2 = mt.nextInt(1, 10);
 
-	var dice10_3 = mt.nextInt(0, 6);
+	var dice10_3 = mt.nextInt(1, 6);
 
 	get_features(dice10_1, dice10_2, dice10_3);
 
