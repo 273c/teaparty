@@ -134,4 +134,4 @@ function get_features(Dice_category, Dice_num, Dice_dcate){
 	});
 
 		};
-　
+ 
