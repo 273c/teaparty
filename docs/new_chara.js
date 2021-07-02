@@ -395,3 +395,4 @@ $('#iachara_newsheet').click(function() {
 		window.open().location.href = ("https://iachara.com/new/costom/webdice?var=6&STR=" + STR + "&CON=" + CON + "&POW=" + POW + "&DEX=" + DEX + "&APP=" + APP + "&SIZ=" + SIZ + "&INT=" + INT + "&EDU=" + EDU);
 
 	});
+
