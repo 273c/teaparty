@@ -7,7 +7,7 @@
 	var spread_img_URL = "//script.google.com/macros/s/AKfycbyqFm-tKIxQivwp9KVj-5Q_dkyDjZJfFkURxUtwQmFPTjKtkxvu/exec";
 
 	//特徴表スプレッドシート
-	//var spread_features = "//script.google.com/macros/s/AKfycbwOX8D0i63LMYw5XC-icMy6I0wGSppYxyMIKoz9FklfcFGHN8BKiEvJc-NxpNaibH9qHw/exec";
+	var spread_features = "//script.google.com/macros/s/AKfycbyljpNfzyWV3_Pzq-iEIaD-knhQdylouTuzj9Ny6A/exec";
 
 
 //タブ bootstrap
@@ -95,34 +95,33 @@ function get_koma(Koma_name){
 
 
 
-//特徴表スプレ呼び出し　クロスドメインで怒られてるよ
-//function get_features(Dice_category, Dice_num){
+//特徴表スプレ呼び出し
 
-//	return get_jsonp(spread_features).done(function(data) {//grepにはできないわ。
+function get_features(Dice_category, Dice_num){
 
-//		console.log(data);
+	return get_json(spread_features).done(function(data) {//grepにはできないわ。
 
-//		for(var i = 0 ; i < data.length ; i++){//dataの中から探す
+		for(var i = 0 ; i < data.length ; i++){//dataの中から探す
 
-//		if (Dice_category == data[i].category && Dice_num == data[i].num){
+		if (Dice_category == data[i].category && Dice_num == data[i].num){
 
-//		var features_name = data[i].name;
-//		var features_txt = data[i].txt;
+		var features_name = data[i].name;
+		var features_txt = data[i].txt;
 
-//		console.log(features_name);
-//		console.log(features_txt);
+		console.log(features_name);
+		console.log(features_txt);
 
-//		document.getElementById('new_result_features').innerHTML = ('<b>' + Dice_category + "-" + Dice_num + " 『" + features_name + "』</b><BR>" + features_txt);
+		document.getElementById('new_result_features').innerHTML = ('<b>' + Dice_category + "-" + Dice_num + " 『" + features_name + "』</b><BR>" + features_txt);
 
-//					break;
+					break;
 
-//		}else{
-//				continue;
-//		 }
-//				} //for
-	
-//	 return features_result = features_name;
-//	});
+		}else{
+				continue;
+	}
+				} //for
 
-//		};
+	return result_features = features_name;
+	});
+
+		};
 
