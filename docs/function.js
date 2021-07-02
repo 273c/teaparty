@@ -96,6 +96,7 @@ function get_koma(Koma_name){
 
 
 //特徴表スプレ呼び出し
+//0701クロスドメインで怒られてるよ 0702解決した。新しいバージョンのGASのデプロイアドレスだと動かない。旧バージョンエディタからデプロイしたら動くよ。
 
 function get_features(Dice_category, Dice_num){
 
@@ -124,4 +125,5 @@ function get_features(Dice_category, Dice_num){
 	});
 
 		};
+
 
