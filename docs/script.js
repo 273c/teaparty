@@ -536,6 +536,7 @@ var ccfolia= {
 				label: "通常",
 			}
 		],//faces end
+	    invisible: true,
         commands:cc_palette
     },
 }
